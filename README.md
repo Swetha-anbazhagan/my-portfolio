@@ -1,0 +1,1225 @@
+# Ex01 Portfolio
+## Date: 27/10/2026
+
+## AIM
+To create a Portfolio using HTML and CSS.
+
+## ALGORITHM
+### STEP 1
+Create an HTML file (index.html)
+
+### STEP 2
+Create a CSS file (style.css)
+
+### STEP 3
+Include a navigation bar with links to different sections.
+
+### STEP 4
+Add structured sections for introduction, about, projects, and contact details.
+
+### STEP 5
+Define global styles for fonts, colors, and layout.
+
+### STEP 6
+Style the header, navigation bar, and sections.
+
+### STEP 7
+Use Flexbox or CSS Grid for layout design.
+
+### STEP 8
+Add hover effects and transitions for interactivity.
+
+### STEP 9
+Add Images and Media.
+
+### STEP 10
+Use optimized images for a professional look.
+
+### STEP 11
+Open the HTML file in a browser to check layout and functionality.
+
+### STEP 12
+Fix styling issues and refine content placement.
+
+### STEP 13
+Deploy the Portfolio.
+
+### STEP 14
+Upload to GitHub Pages for free hosting.
+
+## PROGRAM
+
+## HTML
+
+```
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swetha | Personal Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* GLOBAL STYLES */
+        :root {
+            --background: #100e18;
+            --surface: #191624;
+            --surface-light: #211c30;
+            --lavender: #c8a9ff;
+            --pink: #f3b6d8;
+            --text: #f8f4ff;
+            --muted: #aaa3b9;
+            --border: rgba(255, 255, 255, 0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ::selection {
+            background: var(--lavender);
+            color: var(--background);
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            width: 100%;
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(16, 14, 24, 0.88);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(18px);
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--muted);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--lavender);
+        }
+
+        .nav-button {
+            padding: 10px 19px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: var(--lavender);
+            color: var(--background);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 690px;
+            padding: 90px 10% 110px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 65px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 570px;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            color: var(--lavender);
+            font-size: 10px;
+            letter-spacing: 2px;
+            padding: 9px 15px;
+            border: 1px solid rgba(200, 169, 255, 0.25);
+            border-radius: 30px;
+            margin-bottom: 25px;
+            background: rgba(200, 169, 255, 0.05);
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span,
+        .section-heading h2 span,
+        .contact-section h2 span {
+            background: linear-gradient(100deg, var(--lavender), var(--pink));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content > p {
+            max-width: 490px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 13px 23px;
+            border-radius: 30px;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .primary-button {
+            background: linear-gradient(100deg, var(--lavender), var(--pink));
+            color: #20162b;
+            font-weight: 700;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(200, 169, 255, 0.2);
+        }
+
+        .secondary-button {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .secondary-button:hover {
+            border-color: var(--lavender);
+            color: var(--lavender);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .social-links a {
+            font-size: 12px;
+            color: var(--muted);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--pink);
+        }
+
+        /* HERO VISUAL */
+        .hero-visual {
+            position: relative;
+            width: 340px;
+            min-width: 280px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glow {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, #a784ff, #ed9bce);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.23;
+        }
+
+        .portrait-card {
+            width: 270px;
+            height: 350px;
+            padding: 12px;
+            border: 150px 150px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: linear-gradient(
+                145deg,
+                rgba(200, 169, 255, 0.18),
+                rgba(243, 182, 216, 0.04)
+            );
+            position: relative;
+            z-index: 2;
+            transform: rotate(2deg);
+            transition: 0.4s;
+        }
+
+        .portrait-card:hover {
+            transform: rotate(0deg) translateY(-7px);
+        }
+
+        .portrait-placeholder {
+            height: 260px;
+            border: 140px 140px;
+            background: linear-gradient(145deg, #302541, #59405d);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portrait-placeholder {
+    overflow: hidden;
+}
+
+.portrait-placeholder img {
+    width: 270px;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+    display: block;
+}
+
+        .portrait-placeholder span {
+            font-size: 60px;
+            color: var(--pink);
+        }
+
+        .portrait-placeholder p {
+            font-size: 11px;
+            color: #e8d9f4;
+        }
+
+        .portrait-caption {
+            padding: 12px 10px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portrait-caption span {
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .portrait-caption small {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .floating-card {
+            position: absolute;
+            z-index: 3;
+            background: rgba(35, 29, 48, 0.95);
+            border: 1px solid var(--border);
+            padding: 12px 17px;
+            border-radius: 15px;
+            font-size: 11px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card span {
+            color: var(--pink);
+            margin-right: 5px;
+        }
+
+        .top-card {
+            top: 45px;
+            left: -25px;
+        }
+
+        .bottom-card {
+            bottom: 35px;
+            right: -25px;
+            animation-delay: 1s;
+        }
+
+        .sparkle {
+            position: absolute;
+            color: var(--pink);
+            font-size: 28px;
+        }
+
+        .sparkle-one {
+            top: 10px;
+            right: 20px;
+        }
+
+        .sparkle-two {
+            bottom: 55px;
+            left: 0;
+            font-size: 35px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 10%;
+            color: var(--muted);
+            font-size: 9px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scroll-indicator span {
+            width: 25px;
+            height: 1px;
+            background: var(--pink);
+        }
+
+        /* SHARED SECTIONS */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .section-heading {
+            margin-bottom: 45px;
+        }
+
+        .eyebrow {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--pink);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2,
+        .contact-section h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 500;
+            line-height: 1.35;
+        }
+
+        .section-description {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        /* ABOUT */
+        .about-card {
+            display: flex;
+            gap: 30px;
+            padding: 38px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(
+                130deg,
+                rgba(200, 169, 255, 0.08),
+                rgba(255, 255, 255, 0.015)
+            );
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            border-color: rgba(200, 169, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .about-symbol {
+            min-width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            font-size: 30px;
+            color: var(--pink);
+            border-radius: 20px;
+            background: rgba(243, 182, 216, 0.08);
+        }
+
+        .about-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+            margin-bottom: 12px;
+        }
+
+        /* SKILLS */
+        .skills-section,
+        .education-section {
+            background: #15121f;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 28px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--lavender);
+            background: var(--surface-light);
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: rgba(200, 169, 255, 0.1);
+            color: var(--lavender);
+            font-size: 23px;
+            margin-bottom: 22px;
+        }
+
+        .skill-card h3 {
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.9;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--surface);
+            transition: 0.35s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(200, 169, 255, 0.35);
+        }
+
+        .project-art {
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-art > span {
+            font-family: "Playfair Display", serif;
+            font-size: 55px;
+        }
+
+        .project-art p {
+            font-size: 9px;
+            letter-spacing: 3px;
+        }
+
+        .art-one {
+            background: linear-gradient(135deg, #35284f, #6e4d7a);
+            color: #f0d7ff;
+        }
+
+        .art-two {
+            background: linear-gradient(135deg, #42283e, #85526e);
+            color: #ffe0ef;
+        }
+
+        .art-three {
+            background: linear-gradient(135deg, #252f4d, #4e6086);
+            color: #e0e8ff;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-category {
+            color: var(--pink);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        .project-info h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            margin: 10px 0;
+        }
+
+        .project-info > p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+            min-height: 68px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .tags span {
+            padding: 5px 10px;
+            font-size: 9px;
+            color: var(--lavender);
+            border-radius: 20px;
+            background: rgba(200, 169, 255, 0.08);
+        }
+
+        .project-link {
+            font-size: 11px;
+            color: var(--pink);
+        }
+
+        .project-link:hover {
+            color: var(--lavender);
+        }
+
+        /* EDUCATION */
+        .education-card {
+            display: flex;
+            gap: 22px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface);
+        }
+
+        .education-dot {
+            width: 12px;
+            height: 12px;
+            min-width: 12px;
+            border-radius: 50%;
+            background: var(--pink);
+            margin-top: 9px;
+            box-shadow: 0 0 20px rgba(243, 182, 216, 0.4);
+        }
+
+        .education-date {
+            font-size: 11px;
+            color: var(--pink);
+            letter-spacing: 1px;
+        }
+
+        .education-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            margin: 10px 0;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .education-note {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 11px;
+            color: var(--lavender);
+        }
+
+        /* CONTACT */
+        .contact-section {
+            text-align: center;
+            padding: 110px 20px;
+            background: radial-gradient(
+                ellipse at 50% 100%,
+                rgba(141, 91, 179, 0.16),
+                transparent 60%
+            );
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-section > p {
+            max-width: 450px;
+            margin: 0 auto 30px;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 2;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 30px 8%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer .logo {
+            font-size: 25px;
+        }
+
+        footer p,
+        .back-to-top {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .back-to-top:hover {
+            color: var(--pink);
+        }
+
+        /* ANIMATIONS */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* TABLETS */
+        @media (max-width: 1000px) {
+            .navbar {
+                padding: 20px 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 6%;
+                gap: 25px;
+            }
+
+            .section {
+                padding: 80px 6%;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 650px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                overflow-x: auto;
+                padding: 5px 0;
+                gap: 22px;
+            }
+
+            .nav-links a {
+                white-space: nowrap;
+            }
+
+            .nav-button {
+                font-size: 10px;
+                padding: 8px 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 65px 7% 100px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero-visual {
+                align-self: center;
+                width: 100%;
+                max-width: 340px;
+                margin-top: 15px;
+            }
+
+            .top-card {
+                left: -5px;
+            }
+
+            .bottom-card {
+                right: -5px;
+            }
+
+            .scroll-indicator {
+                left: 7%;
+            }
+
+            .section {
+                padding: 70px 7%;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .about-card {
+                flex-direction: column;
+                padding: 25px;
+                gap: 20px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                padding: 25px;
+            }
+
+            .project-art {
+                height: 200px;
+            }
+
+            .education-card {
+                padding: 22px;
+            }
+
+            .education-card h3 {
+                font-size: 18px;
+            }
+
+            .contact-section {
+                padding: 80px 7%;
+            }
+
+            .contact-section h2 {
+                font-size: 32px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="#home" class="logo">swetha<span>.</span></a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <a href="#contact" class="nav-button">Let's Connect ↗</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <span class="badge">✦ COMPUTER SCIENCE STUDENT</span>
+
+            <h1>
+                Creating with<br>
+                <span>curiosity</span>, building<br>
+                with purpose.
+            </h1>
+
+            <p>
+                Hi, I'm Swetha! A passionate Computer Science student
+                exploring the world of software development, artificial
+                intelligence, and creative problem-solving.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="primary-button">Explore My Work ↗</a>
+                <a href="#about" class="secondary-button">Get to Know Me</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/Swetha-anbazhagan" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="https://www.linkedin.com/in/swetha-anbazhagan-646b89327/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="glow"></div>
+
+            <div class="floating-card top-card">
+                <span>✧</span> Always learning
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-placeholder">
+                    <span>✿</span>
+                    <img src="swetha.jpeg" alt="Swetha - Computer Science Student">
+                </div>
+
+                <div class="portrait-caption">
+                    <span>SWETHA A.</span>
+                    <small>Developer in progress ♡</small>
+                </div>
+            </div>
+
+            <div class="floating-card bottom-card">
+                <span>♡</span> Code with purpose
+            </div>
+
+            <div class="sparkle sparkle-one">✦</div>
+            <div class="sparkle sparkle-two">✧</div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span></span> SCROLL TO EXPLORE
+        </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+
+        <div class="section-heading">
+            <span class="eyebrow">A LITTLE ABOUT ME</span>
+            <h2>Curious mind, <span>creative soul.</span></h2>
+        </div>
+
+        <div class="about-card">
+            <div class="about-symbol">✿</div>
+
+            <div>
+                <h3>Learning, building & becoming.</h3>
+
+                <p>
+                    I'm a Computer Science and Engineering student who loves
+                    learning new technologies and turning ideas into meaningful
+                    digital experiences. I'm particularly interested in
+                    artificial intelligence, software development, and
+                    solving real-world problems through technology.
+                </p>
+
+                <p>
+                    I believe every project is an opportunity to learn
+                    something new, think differently, and grow a little more.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+
+        <div class="section-heading">
+            <span class="eyebrow">MY TOOLKIT</span>
+            <h2>Things I'm <span>learning & building.</span></h2>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-icon">⌘</div>
+                <h3>Programming</h3>
+                <p>C · Python · Java</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">◇</div>
+                <h3>Web Development</h3>
+                <p>HTML · CSS · JavaScript · React</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">✧</div>
+                <h3>AI & Data</h3>
+                <p>Machine Learning · Data Science</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">▤</div>
+                <h3>Tools</h3>
+                <p>Git · GitHub · VS Code · MySQL</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+
+        <div class="section-heading">
+            <span class="eyebrow">A FEW THINGS I'VE BUILT</span>
+            <h2>Ideas turned into <span>projects.</span></h2>
+
+            <p class="section-description">
+                A collection of projects where curiosity meets code.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+                <div class="project-art art-one">
+                    <span>✦</span>
+                    <p>SMARTER DECISIONS</p>
+                </div>
+
+                <div class="project-info">
+                    <span class="project-category">AI / WEB DEVELOPMENT</span>
+                    <h3>AI Procurement Assistant</h3>
+
+                    <p>
+                        A smart system that helps users compare products
+                        based on their requirements and budget.
+                    </p>
+
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>AI</span>
+                    </div>
+
+                    <a href="https://github.com/Anisha2709/AI-Procurement-System"
+                       class="project-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Project ↗
+                    </a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-art art-two">
+                    <span>♡</span>
+                    <p>TECHNOLOGY WITH EMPATHY</p>
+                </div>
+
+                <div class="project-info">
+                    <span class="project-category">TECH FOR GOOD</span>
+                    <h3>EmoteEase</h3>
+
+                    <p>
+                        An emotion-aware concept exploring how technology
+                        can support more meaningful digital experiences.
+                    </p>
+
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>AI</span>
+                    </div>
+
+                    <a href="https://github.com/Anisha2709/EmoteEase"
+                       class="project-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Project ↗
+                    </a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-art art-three">
+                    <span>⌖</span>
+                    <p>EVERY JOURNEY, SIMPLIFIED</p>
+                </div>
+
+                <div class="project-info">
+                    <span class="project-category">SMART NAVIGATION</span>
+                    <h3>Railway Station Navigator</h3>
+
+                    <p>
+                        A navigation concept designed to help passengers
+                        locate platforms and important station facilities.
+                    </p>
+
+                    <div class="tags">
+                        <span>Web</span>
+                        <span>Maps</span>
+                        <span>UI/UX</span>
+                    </div>
+
+                    <a href="https://github.com/"
+                       class="project-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Project ↗
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section education-section" id="education">
+
+        <div class="section-heading">
+            <span class="eyebrow">MY JOURNEY SO FAR</span>
+            <h2>Growing through <span>learning.</span></h2>
+        </div>
+
+        <div class="education-card">
+            <div class="education-dot"></div>
+
+            <div>
+                <span class="education-date">2024 — 2028</span>
+                <h3>B.E. Computer Science and Engineering</h3>
+                <p>Saveetha Engineering College, Chennai</p>
+
+                <span class="education-note">
+                    Learning something new every day ✧
+                </span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+
+        <span class="eyebrow">HAVE A PROJECT IN MIND?</span>
+
+        <h2>
+            Let's create something<br>
+            <span>meaningful together.</span>
+        </h2>
+
+        <p>
+            Always open to learning, collaborating, and connecting
+            with people who love building new things.
+        </p>
+
+        <a href="mailto:your-email@example.com" class="primary-button">
+            Say Hello ♡
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <a href="#home" class="logo">swetha<span>.</span></a>
+
+        <p>Made with ♡, curiosity & a little bit of code.</p>
+
+        <a href="#home" class="back-to-top">Back to top ↑</a>
+    </footer>
+
+</body>
+</html>
+
+
+
+```
+
+## OUTPUT
+
+<img width="1917" height="1135" alt="image" src="https://github.com/user-attachments/assets/23a6e87b-a614-40c7-8191-dea59aa62454" />
+
+<img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/0cbef64d-4fe7-4d1a-acb6-8cbec1306ce4" />
+
+<img width="1917" height="820" alt="image" src="https://github.com/user-attachments/assets/bd8b289a-4219-4a44-aeef-83656ad32275" />
+
+<img width="1917" height="1140" alt="image" src="https://github.com/user-attachments/assets/13d9a1ff-6fde-4aea-a412-30797d6cc026" />
+
+<img width="1917" height="1135" alt="image" src="https://github.com/user-attachments/assets/543c51b2-6eb7-401f-951a-0316e5fb1216" />
+
+<img width="1917" height="1113" alt="image" src="https://github.com/user-attachments/assets/73c56794-861b-405a-ac2e-28eaf8fff347" />
+
+
+
+
+
+
+
+
+
+## RESULT
+The program for creating Portfolio using HTML and CSS is executed successfully.
